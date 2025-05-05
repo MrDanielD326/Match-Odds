@@ -1,12 +1,8 @@
 import { useRef, useState, useEffect, FC, ChangeEvent } from 'react'
 import { TrashIcon, UploadIcon, UserIcon } from '../icons'
+import { iProfilePic } from '@/interfaces/interfaces';
 
-interface ProfilePhotoSelectorProps {
-  image: File | null;
-  setImage: (image: File | null) => void;
-}
-
-const ProfilePhotoSelector: FC<ProfilePhotoSelectorProps> = ({ image, setImage }) => {
+const ProfilePhotoSelector: FC<iProfilePic> = ({ image, setImage }) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 

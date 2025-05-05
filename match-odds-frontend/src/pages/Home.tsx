@@ -1,33 +1,29 @@
 import DefaultLayout from "@/layouts/default";
-import { CheckIcon, ShowIcon, StartIcon } from "@/components/icons";
+import { ShowIcon, StartIcon } from "@/components/icons";
 import { Link } from "@heroui/link";
 import { button } from "@heroui/theme";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import { useRef } from "react";
 import { ProjectInfo } from "@/config/info";
-import Info from "@/components/Info/info";
+import Info from "@/components/Info/Info";
+import { hoverOff, hoverOn } from "@/utils/utils";
 
 export default function HomePage() {
     const iconRef = useRef<HTMLElement>(null);
-    const mouse = (type: string) => iconRef.current?.dispatchEvent(new MouseEvent(type));
-    const handleEnter = () => mouse('mouseenter');
-    const handleLeave = () => mouse('mouseleave');
-
     return (
         <DefaultLayout>
             <div className="flex items-center justify-center">
-                <Link href="/login" onMouseEnter={handleEnter} onMouseLeave={handleLeave}
+                <Link href="/login"
+                    onMouseEnter={() => hoverOn("start-icon")}
+                    onMouseLeave={() => hoverOff("start-icon")}
                     className={button({ radius: "full", variant: "flat", color: "secondary" })}
                 >
                     Get Started <StartIcon id="start-icon" ref={iconRef} />
                 </Link>
             </div>
-            <Accordion variant="light" >
+            <Accordion isCompact variant="light">
                 {ProjectInfo.map(({ title, subtitle, description }, index) => (
-                    <AccordionItem
-                        key={index} aria-label={title} title={title} subtitle={subtitle}
-                        startContent={<ShowIcon />} indicator={<CheckIcon />}
-                    >
+                    <AccordionItem key={index} aria-label={title} title={title} subtitle={subtitle} startContent={<ShowIcon />}>
                         <p className="text-center text-sm"> {description} </p>
                     </AccordionItem>
                 ))}

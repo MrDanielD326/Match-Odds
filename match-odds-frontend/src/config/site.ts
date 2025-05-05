@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   creator: "Daniel D",
   name: "Match Odds",
-  description: "Real-time betting platform featuring live cricket updates, secure bet placement, and personalized WhatsApp notifications for seamless transactions.",
+  description: "Real-time betting platform featuring live cricket updates, secure bet placement, and personalized notifications for seamless transactions.",
   navItems: [
     { label: "Docs", href: "/docs" },
     { label: "Pricing", href: "/pricing" },

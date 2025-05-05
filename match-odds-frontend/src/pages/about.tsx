@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon, LinkedInIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import Info from "@/components/Info/info";
+import Info from "@/components/Info/Info";
 
 export default function DocsPage() {
   const buttonData = [
@@ -23,7 +23,7 @@ export default function DocsPage() {
         </div>
         <div className="flex gap-3">
           {buttonData.map((link, index) => (
-            <Link key={index} isExternal className={button({ radius: "full", variant: "bordered" })} href={link.href}>
+            <Link key={index} isExternal className={button({ radius: "full", variant: "flat" })} href={link.href}>
               {link.icon} {link.text}
             </Link>
           ))}

@@ -1,28 +1,30 @@
 import { IconSvgProps } from "@/types";
-import { FC, forwardRef, ReactNode } from "react";
+import { FC, forwardRef } from "react";
 
-export const BrandIcon: FC = () => (
+export const BrandIcon = forwardRef<HTMLElement, { id: string }>((props, ref) => (
   <lord-icon
-    src="https://cdn.lordicon.com/kkdnopsh.json"
+    id={props.id}
+    ref={ref}
+    src="https://cdn.lordicon.com/rhmhivzj.json"
     trigger="loop-on-hover"
-    colors="primary:#121331,secondary:#900C3F,tertiary:#a67c00"
+    state="loop-spin"
+    colors="primary:#900c3f,secondary:#ffdc73"
   />
-);
+));
 
 export const LinkedInIcon: FC = () => (
   <lord-icon
-    src="https://cdn.lordicon.com/xerxcacw.json"
+    src="https://cdn.lordicon.com/fgctxlnd.json"
     trigger="loop-on-hover"
-    colors="primary:#121331,secondary:#ffffff,tertiary:#900C3F"
+    colors="primary:#900c3f,secondary:#ebe6ef"
   />
 );
 
-
 export const GithubIcon: FC = () => (
   <lord-icon
-    src="https://cdn.lordicon.com/lllcnxva.json"
+    src="https://cdn.lordicon.com/ioihllwu.json"
     trigger="loop-on-hover"
-    colors="primary:#121331,secondary:#ffffff,tertiary:#900C3F"
+    colors="primary:#ffffff,secondary:#900c3f"
   />
 );
 
@@ -38,71 +40,83 @@ export const StartIcon = forwardRef<HTMLElement, { id: string }>((props, ref) =>
 
 export const UserIcon: FC = () => (
   <lord-icon
-    src="https://cdn.lordicon.com/hhljfoaj.json"
+    src="https://cdn.lordicon.com/hroklero.json"
     trigger="loop-on-hover"
-    colors="primary:#121331,secondary:#900C3F,tertiary:#900C3F"
+    colors="primary:#900c3f,secondary:#900c3f"
   />
 );
 
 export const TrashIcon: FC = () => (
   <lord-icon
-    src="https://cdn.lordicon.com/nhqwlgwt.json"
+    src="https://cdn.lordicon.com/qnhhgmwn.json"
     trigger="hover"
-    colors="primary:#121331,secondary:#900C3F,tertiary:#646e78,quaternary:#ebe6ef"
+    colors="primary:#646e78,secondary:#900c3f,tertiary:#fad3d1,quaternary:#900c3f"
   />
 );
 
 export const UploadIcon: FC = () => (
   <lord-icon
     src="https://cdn.lordicon.com/sqmqtgjh.json"
-    trigger="hover"
-    colors="primary:#900C3F,secondary:#ebe6ef"
+    trigger="loop-on-hover"
+    colors="primary:#900c3f,secondary:#e5d1fa"
   />
 );
 
 export const EyeOpenIcon: FC = () => (
   <lord-icon
     src="https://cdn.lordicon.com/knitbwfa.json"
-    trigger="loop-on-hover"
-    delay="500"
+    trigger="hover"
+    stroke="light"
     state="hover-look-around"
-    colors="primary:#121331,secondary:#ebe6ef,tertiary:#3a3347,quaternary:#900c3f,quinary:#f9c9c0,senary:#f24c00"
+    colors="primary:#000000,secondary:#ffffff,tertiary:#000000,quaternary:#900c3f,quinary:#000000,senary:#000000"
   />
 );
 
 export const EyeCloseIcon: FC = () => (
   <lord-icon
-    src="https://cdn.lordicon.com/ntfnmkcn.json"
-    trigger="loop-on-hover"
-    delay="500"
-    state="hover-cross"
-    colors="primary:#ebe6ef,secondary:#3a3347,tertiary:#900C3F,quaternary:#f9c9c0,quinary:#900C3F"
+    src="https://cdn.lordicon.com/knitbwfa.json"
+    trigger="hover"
+    stroke="light"
+    state="morph-cross"
+    colors="primary:#000000,secondary:#ffffff,tertiary:#000000,quaternary:#900c3f,quinary:#000000,senary:#000000"
   />
 );
 
 export const ShowIcon: FC = () => (
   <lord-icon
     src="https://cdn.lordicon.com/japgxnmg.json"
-    trigger="hover"
-    colors="primary:#a67c00,secondary:#ffdc73,tertiary:#ffffff,quaternary:#3a3347"
-  />
-);
-
-export const CheckIcon: FC = () => (
-  <lord-icon
-    src="https://cdn.lordicon.com/cukgelaw.json"
     trigger="loop-on-hover"
-    colors="primary:#5c230a,secondary:#ffdc73,tertiary:#5c230a"
+    stroke="light"
+    colors="primary:#000000,secondary:#ffdc73,tertiary:#000000,quaternary:#000000"
   />
 );
 
-const ThemeIcon = ({ size = 25, width, height, children, ...props }: IconSvgProps & { children: ReactNode }) => (
-  <svg aria-hidden="true" focusable="false" height={height ?? size} width={width ?? size} viewBox="0 0 24 24" {...props}>
+export const LoadingIcon: FC = () => (
+  <lord-icon
+    src="https://cdn.lordicon.com/ayvhsttz.json"
+    trigger="loop"
+    stroke="bold"
+    state="loop-cycle"
+    colors="primary:#900c3f,secondary:#e50914"
+  />
+);
+
+const ThemeIcon = ({ size = 25, width, height, children, ...props }: IconSvgProps & { children: React.ReactNode }) => (
+  <svg
+    className="transition-transform duration-100 ease-in-out hover:scale-110"
+    aria-hidden="true"
+    focusable="false"
+    height={height ?? size}
+    width={width ?? size}
+    viewBox="0 0 24 24"
+    {...props}
+  >
     <g fill="#900C3F">
       {children}
     </g>
   </svg>
 );
+
 
 export const MoonFilledIcon = ({ size = 25, ...props }: IconSvgProps) => (
   <ThemeIcon size={size} {...props}>

@@ -1,20 +1,11 @@
-import { EyeCloseIcon, EyeOpenIcon } from "@/components/icons";
-import { useState } from "react";
-import { Button, Chip, Input, Link, Tooltip } from "@heroui/react";
+import { Button, Chip, Input, Tooltip } from "@heroui/react";
 import AuthLayout from "./AuthLayout";
 import ProfilePhotoSelector from "@/components/Input/ProfilePhotoSelector";
 import { ProjectInfo } from "@/config/info";
+import usePasswordVisibility from "@/utils/utils";
 
 export default function SignupPage() {
-    const [isVisible, setIsVisible] = useState(false);
-
-    const toggleVisibility = () => setIsVisible(!isVisible);
-
-    const visible = (
-        <button aria-label="toggle password visibility" className="focus:outline-none" type="button" onClick={toggleVisibility}>
-            {isVisible ? <EyeCloseIcon /> : <EyeOpenIcon />}
-        </button>
-    );
+    const { isVisible, VisibilityToggle } = usePasswordVisibility();
 
     const help = (
         <div>
@@ -33,7 +24,7 @@ export default function SignupPage() {
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Email" placeholder="Enter email" type="email" />
                         <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Full Name" placeholder="Enter full name" type="text" />
-                        <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Password" placeholder="Enter password" type={isVisible ? "text" : "password"} endContent={visible} />
+                        <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Password" placeholder="Enter password" type={isVisible ? "text" : "password"} endContent={VisibilityToggle} />
                         <div className="flex flex-col space-y-2">
                             <p className="text-sm"> Know more </p>
                             <Tooltip showArrow className="w-[75%]" color="secondary" placement="bottom-start" content={help}>
@@ -47,10 +38,6 @@ export default function SignupPage() {
                 </div>
                 <br />
                 <Button type='submit' color="secondary" className='font-medium' variant="flat"> SIGN UP </Button>
-                <p className='text-[13px] mt-3'>
-                    Already have an account?  &nbsp;
-                    <Link color="secondary" className='font-medium' href="/login"> Login </Link>
-                </p>
             </form>
         </AuthLayout>
     );
