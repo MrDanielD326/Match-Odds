@@ -1,6 +1,16 @@
 import { IconSvgProps } from "@/types";
 import { FC, forwardRef } from "react";
 
+export const StartIcon = forwardRef<HTMLElement, { id: string }>((props, ref) => (
+  <lord-icon
+    id={props.id}
+    ref={ref}
+    src="https://cdn.lordicon.com/ekuoyiqn.json"
+    trigger="loop-on-hover"
+    colors="primary:#900C3F,secondary:#900C3F,tertiary:#ebe6ef,quaternary:#900C3F"
+  />
+));
+
 export const BrandIcon = forwardRef<HTMLElement, { id: string }>((props, ref) => (
   <lord-icon
     id={props.id}
@@ -28,16 +38,6 @@ export const GithubIcon: FC = () => (
   />
 );
 
-export const StartIcon = forwardRef<HTMLElement, { id: string }>((props, ref) => (
-  <lord-icon
-    id={props.id}
-    ref={ref}
-    src="https://cdn.lordicon.com/ekuoyiqn.json"
-    trigger="loop-on-hover"
-    colors="primary:#900C3F,secondary:#900C3F,tertiary:#ebe6ef,quaternary:#900C3F"
-  />
-));
-
 export const UserIcon: FC = () => (
   <lord-icon
     src="https://cdn.lordicon.com/hroklero.json"
@@ -49,7 +49,7 @@ export const UserIcon: FC = () => (
 export const TrashIcon: FC = () => (
   <lord-icon
     src="https://cdn.lordicon.com/qnhhgmwn.json"
-    trigger="hover"
+    trigger="loop-on-hover"
     colors="primary:#646e78,secondary:#900c3f,tertiary:#fad3d1,quaternary:#900c3f"
   />
 );
@@ -65,7 +65,7 @@ export const UploadIcon: FC = () => (
 export const EyeOpenIcon: FC = () => (
   <lord-icon
     src="https://cdn.lordicon.com/knitbwfa.json"
-    trigger="hover"
+    trigger="loop-on-hover"
     stroke="light"
     state="hover-look-around"
     colors="primary:#000000,secondary:#ffffff,tertiary:#000000,quaternary:#900c3f,quinary:#000000,senary:#000000"
@@ -77,8 +77,8 @@ export const EyeCloseIcon: FC = () => (
     src="https://cdn.lordicon.com/knitbwfa.json"
     trigger="hover"
     stroke="light"
-    state="morph-cross"
-    colors="primary:#000000,secondary:#ffffff,tertiary:#000000,quaternary:#900c3f,quinary:#000000,senary:#000000"
+    state="hover-cross"
+    colors="primary:#000000,secondary:#ffffff,tertiary:#000000,quaternary:#900c3f,quinary:#000000,senary:#e50914"
   />
 );
 
@@ -106,14 +106,12 @@ const ThemeIcon = ({ size = 25, width, height, children, ...props }: IconSvgProp
     className="transition-transform duration-100 ease-in-out hover:scale-110"
     aria-hidden="true"
     focusable="false"
+    viewBox="0 0 24 24"
     height={height ?? size}
     width={width ?? size}
-    viewBox="0 0 24 24"
     {...props}
   >
-    <g fill="#900C3F">
-      {children}
-    </g>
+    <g fill="#900C3F"> {children} </g>
   </svg>
 );
 
