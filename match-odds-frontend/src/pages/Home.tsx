@@ -5,7 +5,6 @@ import { button } from "@heroui/theme";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import { useRef } from "react";
 import { ProjectInfo } from "@/config/info";
-import Info from "@/components/Info/Info";
 import { hoverOff, hoverOn } from "@/utils/utils";
 
 export default function HomePage() {
@@ -21,14 +20,14 @@ export default function HomePage() {
                     Get Started <StartIcon id="start-icon" ref={iconRef} />
                 </Link>
             </div>
+            <br />
             <Accordion isCompact variant="light">
-                {ProjectInfo.map(({ title, subtitle, description }, index) => (
-                    <AccordionItem key={index} aria-label={title} title={title} subtitle={subtitle} startContent={<ShowIcon />}>
+                {ProjectInfo.map(({ title, subtitle, description, icon }, index) => (
+                    <AccordionItem key={index} aria-label={title} title={title} subtitle={subtitle} startContent={icon}>
                         <p className="text-center text-sm"> {description} </p>
                     </AccordionItem>
                 ))}
             </Accordion>
-            <Info />
         </DefaultLayout>
     );
 };

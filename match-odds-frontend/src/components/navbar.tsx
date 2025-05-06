@@ -6,19 +6,17 @@ import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon, LinkedInIcon } from "@/components/icons";
 import { useLocation } from "react-router-dom";
-import { BrandName, hoverOff, hoverOn } from "@/utils/utils";
+import { BrandLink } from "@/utils/utils";
 
 export const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
   return (
-    <HeroUINavbar maxWidth="xl" position="sticky">
+    <HeroUINavbar maxWidth="xl" position="sticky" shouldHideOnScroll>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
-          <Link className="flex justify-start items-center gap-1" color="foreground" href="/home" onMouseEnter={() => hoverOn('brand-icon')} onMouseLeave={() => hoverOff('brand-icon')}>
-            <BrandName />
-          </Link>
+          <BrandLink navs={isHomePage} />
         </NavbarBrand>
         {!isHomePage && (
           <div className="hidden lg:flex gap-4 justify-start ml-2">
