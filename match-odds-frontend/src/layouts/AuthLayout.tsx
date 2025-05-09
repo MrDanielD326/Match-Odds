@@ -28,9 +28,7 @@ const AuthLayout = ({ children }: iAuthLayout) => {
           {options.map(({ loc, message, buttonText, nav }) => loc && (
             <p key={nav} className="text-[15px]">
               {message}
-              <button onClick={() => navigate(nav)} className="text-secondary font-bold">
-                {buttonText}
-              </button>
+              <button onClick={() => navigate(nav)} className="text-secondary font-bold"> {buttonText} </button>
             </p>
           ))}
         </CardFooter>

@@ -3,7 +3,7 @@ import { subtitle, title } from "@/components/primitives";
 import { getGreetingAndDate } from "@/utils/utils";
 
 export default function Home() {
-  const { greeting, formattedDate } = getGreetingAndDate();
+  const { greeting, currentDate } = getGreetingAndDate();
 
   return (
     <AppLayout>
@@ -11,7 +11,7 @@ export default function Home() {
         <span className={title()}> {greeting} </span>
         <span className={title({ color: "primary" })}> Danny </span>
       </div>
-      <span className={subtitle()}> {formattedDate} </span>
+      <span className={subtitle()}> {currentDate} </span>
     </AppLayout>
   );
 }

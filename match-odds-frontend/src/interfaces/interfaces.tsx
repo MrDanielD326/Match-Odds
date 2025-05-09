@@ -20,7 +20,7 @@ export interface iProfilePic {
     setImage: (image: File | null) => void;
 }
 
-export interface iGreetingAndDate {
+export interface iFormat {
     greeting: string;
-    formattedDate: string;
+    currentDate: string;
 }
