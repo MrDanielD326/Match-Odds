@@ -8,7 +8,7 @@ const navList = [
 ];
 
 export const siteConfig = {
-  creator: "Daniel D",
+  creator: 'Daniel\u00A0D',
   email: "daniel.elohi326@gmail.com",
   brandName: "Match Odds",
   description: "Real-time betting platform featuring live cricket updates, secure bet placement, and personalized notifications for seamless transactions.",

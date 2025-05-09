@@ -1,8 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
-import { ThemeSwitch } from "@/components/theme-switch";
+import { ThemeSwitch } from "@/components/Themes/ThemeSwitch";
 import { iAuthLayout } from "@/interfaces/interfaces";
-import bgImage from "../../assets/background.png";
+import bgImage from "../assets/Images/background.png";
 
 const AuthLayout = ({ children }: iAuthLayout) => {
   const navigate = useNavigate();

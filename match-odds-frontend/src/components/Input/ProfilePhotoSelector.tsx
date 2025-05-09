@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, FC, ChangeEvent } from 'react'
-import { TrashIcon, UploadIcon, UserIcon } from '../icons'
+import { TrashIcon, UploadIcon, UserIcon } from '../Icons/icons'
 import { iProfilePic } from '@/interfaces/interfaces';
 
 const ProfilePhotoSelector: FC<iProfilePic> = ({ image, setImage }) => {

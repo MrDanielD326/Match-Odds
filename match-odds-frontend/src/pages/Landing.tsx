@@ -1,9 +1,9 @@
-import DefaultLayout from "@/layouts/default";
-import { IntroIcon, StartIcon } from "@/components/icons";
+import AppLayout from "@/layouts/AppLayout";
+import { IntroIcon, StartIcon } from "@/components/Icons/icons";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import { useRef, useState } from "react";
 import { ProjectInfo } from "@/config/info";
-import { hoverOff, hoverOn } from "@/components/iconLinks";
+import { hoverOff, hoverOn } from "@/components/Icons/iconLinks";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@heroui/button";
 
@@ -20,7 +20,7 @@ export default function Landing() {
         }, 1650);
     };
 
-    const icon = () => ( <div className="flex items-center justify-center"> <IntroIcon /> </div> );
+    const icon = () => (<div className="flex items-center justify-center"> <IntroIcon /> </div>);
 
     const landingPageData = () => (
         <>
@@ -53,5 +53,5 @@ export default function Landing() {
         </>
     );
 
-    return <DefaultLayout> {showIntroIcon ? icon() : landingPageData()} </DefaultLayout>;
+    return <AppLayout> {showIntroIcon ? icon() : landingPageData()} </AppLayout>;
 };

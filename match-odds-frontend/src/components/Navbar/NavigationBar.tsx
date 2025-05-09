@@ -4,11 +4,11 @@ import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarM
 import { link as linkStyles } from "@heroui/theme";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
+import { ThemeSwitch } from "@/components/Themes/ThemeSwitch";
 import { useLocation } from "react-router-dom";
-import { BrandLink, LogoutLink } from "@/components/iconLinks";
+import { BrandLink, LogoutLink } from "@/components/Icons/iconLinks";
 
-export const Navbar = () => {
+export const NavigationBar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);

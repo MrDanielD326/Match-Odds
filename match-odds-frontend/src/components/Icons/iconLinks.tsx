@@ -1,4 +1,4 @@
-import { BrandIcon, EyeCloseIcon, EyeOpenIcon, LogoutIcon } from "@/components/icons";
+import { BrandIcon, EyeCloseIcon, EyeOpenIcon, LogoutIcon } from "@/components/Icons/icons";
 import { useRef, useState } from "react";
 import { Fragment } from "react/jsx-runtime";
 import { Link } from "react-router-dom";

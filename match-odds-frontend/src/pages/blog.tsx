@@ -1,14 +1,14 @@
-import { title } from "@/components/primitives";
-import DefaultLayout from "@/layouts/default";
+import { title } from "@/utils/primitives";
+import AppLayout from "@/layouts/AppLayout";
 
 export default function Blog() {
   return (
-    <DefaultLayout>
+    <AppLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-0">
         <div className="inline-block max-w-lg text-center justify-center">
           <span className={title({ color: "primary" })}> Blog </span>
         </div>
       </section>
-    </DefaultLayout>
+    </AppLayout>
   );
 }

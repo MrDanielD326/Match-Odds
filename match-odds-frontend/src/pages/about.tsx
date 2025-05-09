@@ -1,13 +1,13 @@
 import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import DefaultLayout from "@/layouts/default";
+import { title, subtitle } from "@/utils/primitives";
+import AppLayout from "@/layouts/AppLayout";
 import { AdminCard } from "@/components/Card/AdminCard";
 
 export default function About() {
   const { brandName, creator, description } = siteConfig;
 
   return (
-    <DefaultLayout>
+    <AppLayout>
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 px-4 md:px-8">
         <section className="flex flex-col items-center justify-center text-center max-w-lg w-full">
           <div>
@@ -18,6 +18,6 @@ export default function About() {
         </section>
         <div className="w-full md:w-auto flex justify-center"> <AdminCard /> </div>
       </div>
-    </DefaultLayout>
+    </AppLayout>
   );
 }

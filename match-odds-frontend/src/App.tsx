@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, Suspense } from "react";
-import { LoadingIcon } from "./components/icons";
+import { LoadingIcon } from "./components/Icons/icons";
 import { iSmooth } from "./interfaces/interfaces";
 import LoginPage from "./pages/Auth/Login";
 import SignupPage from "./pages/Auth/Signup";

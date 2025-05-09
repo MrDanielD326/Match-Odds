@@ -1,7 +1,7 @@
-import Photo from "../../assets/Admin.png";
+import Photo from "../../assets/Images/Admin.png";
 import { addToast, Card, CardBody, CardFooter, CardHeader, Image } from "@heroui/react";
 import { siteConfig } from "@/config/site";
-import { GithubIcon, LinkedInIcon, MailIcon } from "../icons";
+import { GithubIcon, LinkedInIcon, MailIcon } from "../Icons/icons";
 import { useEffect, useState } from "react";
 import { getGreetingAndDate } from "@/utils/utils";
 import { iHover } from "@/types";

@@ -1,7 +1,7 @@
 import { Input } from "@heroui/input";
 import { Button } from "@heroui/button";
-import AuthLayout from "./AuthLayout";
-import usePasswordVisibility from "@/components/iconLinks";
+import AuthLayout from "../../layouts/AuthLayout";
+import usePasswordVisibility from "@/components/Icons/iconLinks";
 
 export default function LoginPage() {
     const { isVisible, VisibilityToggle } = usePasswordVisibility();
