@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/utils/primitives";
+import { title, subtitle } from "@/components/primitives";
 import AppLayout from "@/layouts/AppLayout";
 import { AdminCard } from "@/components/Card/AdminCard";
 

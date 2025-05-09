@@ -1,5 +1,5 @@
-import { title, subtitle } from "@/utils/primitives";
 import AppLayout from "@/layouts/AppLayout";
+import { subtitle, title } from "@/components/primitives";
 import { getGreetingAndDate } from "@/utils/utils";
 
 export default function Home() {

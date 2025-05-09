@@ -1,4 +1,4 @@
-import { title } from "@/utils/primitives";
+import { title } from "@/components/primitives";
 import AppLayout from "@/layouts/AppLayout";
 
 export default function Blog() {
