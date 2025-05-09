@@ -46,9 +46,7 @@ export const ThemeSwitch: FC<iThemes> = ({ className, classNames }) => {
         )
       })}
     >
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <VisuallyHidden> <input {...getInputProps()} /> </VisuallyHidden>
       <div
         {...getWrapperProps({
           className: clsx(

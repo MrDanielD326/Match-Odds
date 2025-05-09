@@ -1,33 +1,17 @@
+import { title, subtitle } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
-import { ShowIcon, StartIcon } from "@/components/icons";
-import { Link } from "@heroui/link";
-import { button } from "@heroui/theme";
-import { Accordion, AccordionItem } from "@heroui/accordion";
-import { useRef } from "react";
-import { ProjectInfo } from "@/config/info";
-import { hoverOff, hoverOn } from "@/utils/utils";
+import { getGreetingAndDate } from "@/utils/utils";
 
-export default function HomePage() {
-    const iconRef = useRef<HTMLElement>(null);
-    return (
-        <DefaultLayout>
-            <div className="flex items-center justify-center">
-                <Link href="/login"
-                    onMouseEnter={() => hoverOn("start-icon")}
-                    onMouseLeave={() => hoverOff("start-icon")}
-                    className={button({ radius: "full", variant: "flat", color: "secondary" })}
-                >
-                    Get Started <StartIcon id="start-icon" ref={iconRef} />
-                </Link>
-            </div>
-            <br />
-            <Accordion isCompact variant="light">
-                {ProjectInfo.map(({ title, subtitle, description, icon }, index) => (
-                    <AccordionItem key={index} aria-label={title} title={title} subtitle={subtitle} startContent={icon}>
-                        <p className="text-center text-sm"> {description} </p>
-                    </AccordionItem>
-                ))}
-            </Accordion>
-        </DefaultLayout>
-    );
-};
+export default function Home() {
+  const { greeting, formattedDate } = getGreetingAndDate();
+
+  return (
+    <DefaultLayout>
+      <div className="inline-block max-w-lg text-center justify-center">
+        <span className={title()}> {greeting} </span>
+        <span className={title({ color: "primary" })}> Danny </span>
+      </div>
+      <span className={subtitle()}> {formattedDate} </span>
+    </DefaultLayout>
+  );
+}

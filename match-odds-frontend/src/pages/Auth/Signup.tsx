@@ -2,7 +2,7 @@ import { Button, Chip, Input, Tooltip } from "@heroui/react";
 import AuthLayout from "./AuthLayout";
 import ProfilePhotoSelector from "@/components/Input/ProfilePhotoSelector";
 import { ProjectInfo } from "@/config/info";
-import usePasswordVisibility from "@/utils/utils";
+import usePasswordVisibility from "@/components/iconLinks";
 
 export default function SignupPage() {
     const { isVisible, VisibilityToggle } = usePasswordVisibility();

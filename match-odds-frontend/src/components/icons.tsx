@@ -101,6 +101,32 @@ export const LoadingIcon: FC = () => (
   />
 );
 
+export const MailIcon: FC = () => (
+  <lord-icon
+    src="https://cdn.lordicon.com/dpggoewm.json"
+    trigger="hover"
+    colors="primary:#5c0a33,secondary:#900c3f,tertiary:#c7166f"
+  />
+);
+
+export const LogoutIcon: FC = () => (
+  <lord-icon
+    src="https://cdn.lordicon.com/ncseweia.json"
+    trigger="hover"
+    colors="primary:#b26836,secondary:#f9c9c0,tertiary:#5c330a,quaternary:#3a3347,quinary:#5c330a,senary:#900c3f"
+  />
+);
+
+export const IntroIcon: FC = () => (
+  <lord-icon
+    src="https://cdn.lordicon.com/mhnfcfpf.json"
+    trigger="in"
+    state="in-reveal"
+    colors="primary:#fad1e6,secondary:#900c3f,tertiary:#c7c116,quaternary:#3080e8"
+    style={{ width: "300px", height: "300px"}}
+  />
+);
+
 const ThemeIcon = ({ size = 25, width, height, children, ...props }: IconSvgProps & { children: React.ReactNode }) => (
   <svg
     className="transition-transform duration-100 ease-in-out hover:scale-110"

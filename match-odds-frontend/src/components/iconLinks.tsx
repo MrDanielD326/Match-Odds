@@ -1,10 +1,10 @@
-import { BrandIcon, EyeCloseIcon, EyeOpenIcon } from "@/components/icons";
+import { BrandIcon, EyeCloseIcon, EyeOpenIcon, LogoutIcon } from "@/components/icons";
 import { useRef, useState } from "react";
 import { Fragment } from "react/jsx-runtime";
-import backgroundDark from "../assets/backgroundDark.png";
-import backgroundLight from "../assets/backgroundLight.png";
-import { Link } from "@heroui/link";
+import { Link } from "react-router-dom";
 import { iconHover } from "@/types";
+import { siteConfig } from "@/config/site";
+import { useNavigate } from "react-router-dom";
 
 const hoverIcon = (target: iconHover, isHovering: boolean) => (
     (typeof target === "string" ? document.getElementById(target) : target)
@@ -19,7 +19,7 @@ export const BrandName = () => {
     return (
         <Fragment>
             <BrandIcon id="brand-icon" ref={iconRef} />
-            <p className="font-bold text-inherit"> MATCH ODDS </p>
+            <p className="font-bold text-inherit"> {siteConfig.brandName.toUpperCase()} </p>
         </Fragment>
     )
 };
@@ -30,7 +30,7 @@ export const BrandLink = ({ navs }: { navs: boolean }) => {
         onMouseEnter: () => hoverOn("brand-icon"),
         onMouseLeave: () => hoverOff("brand-icon")
     };
-    return navs ? <div {...common}> <BrandName /> </div> : <Link color="foreground" href="/home" {...common}> <BrandName /> </Link>;
+    return navs ? <div {...common}> <BrandName /> </div> : <Link color="foreground" to="/home" {...common}> <BrandName /> </Link>;
 };
 
 export default function usePasswordVisibility() {
@@ -47,9 +47,8 @@ export default function usePasswordVisibility() {
     return { isVisible, VisibilityToggle };
 };
 
-export const BackgroundImage = ({ theme }: { theme: string }) => {
-    const image = { backgroundImage: `url(${theme === "dark" ? backgroundDark : backgroundLight})` };
-    return (
-        <div style={image} className="md:flex w-[40vw] h-screen justify-center bg-cover overflow-hidden p-8" />
-    );
+export const LogoutLink = () => {
+    const navigation = useNavigate();
+    const handleLogout = () => navigation('/login');
+    return <button onClick={handleLogout}> <LogoutIcon /> </button>
 };

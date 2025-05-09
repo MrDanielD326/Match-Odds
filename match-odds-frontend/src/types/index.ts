@@ -5,3 +5,5 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 };
 
 export type iconHover = string | HTMLElement | null;
+
+export type iHover = "default" | "email" | "github" | "linkedin" | null;

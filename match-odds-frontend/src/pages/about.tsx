@@ -1,20 +1,23 @@
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
+import { AdminCard } from "@/components/Card/AdminCard";
 
-export default function DocsPage() {
-  const { name, creator, description } = siteConfig;
+export default function About() {
+  const { brandName, creator, description } = siteConfig;
 
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <span className={title()}> {name} - </span>
-          <span className={title({ color: "primary" })}> {creator} </span>
-          <br />
-          <div className={subtitle({ class: "mt-4" })}> {description} </div>
-        </div>
-      </section>
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 px-4 md:px-8">
+        <section className="flex flex-col items-center justify-center text-center max-w-lg w-full">
+          <div>
+            <span className={title()}> {brandName} - </span>
+            <span className={title({ color: "primary" })}> {creator} </span>
+            <div className={subtitle({ class: "mt-4" })}> {description} </div>
+          </div>
+        </section>
+        <div className="w-full md:w-auto flex justify-center"> <AdminCard /> </div>
+      </div>
     </DefaultLayout>
   );
 }

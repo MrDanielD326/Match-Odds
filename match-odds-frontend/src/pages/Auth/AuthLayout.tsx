@@ -1,51 +1,40 @@
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
-import { Link } from "@heroui/link";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { useTheme } from "@heroui/use-theme";
-import { BackgroundImage, BrandName, hoverOff, hoverOn } from "@/utils/utils";
 import { iAuthLayout } from "@/interfaces/interfaces";
+import bgImage from "../../assets/background.png";
 
 const AuthLayout = ({ children }: iAuthLayout) => {
-  const location = useLocation();
-  const { pathname: path } = location;
-  const loginPage = path === "/login";
-  const signupPage = path === "/signup";
-  const { theme } = useTheme();
+  const navigate = useNavigate();
+  const { pathname: path } = useLocation();
+  const background = { backgroundImage: `url(${bgImage})`, backgroundSize: "100% 100%" };
+  const theme = () => (<ThemeSwitch className="absolute right-3" />);
 
-  const authNavigate = () => {
-    const authPages = [
-      { page: loginPage, text: "Don't have an account ?", linkText: "Sign up", href: "/signup" },
-      { page: signupPage, text: "Already have an account ?", linkText: "Login", href: "/login" }
-    ];
-    return authPages.filter(item => item.page).map(({ text, linkText, href }, index) => (
-      <p key={index} className="text-[13px] mt-3">
-        {text} &nbsp; <Link color="secondary" className="font-medium" href={href}> {linkText} </Link>
-      </p>
-    ))
-  };
+  const options = [
+    { loc: path === "/login", message: "Don't have an account? ", buttonText: "Sign up", nav: "/signup" },
+    { loc: path === "/signup", message: "Already have an account? ", buttonText: "Login", nav: "/login" },
+  ];
 
   return (
-    <div className="flex">
-      <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
-        <div className="flex items-center justify-between w-full">
-          <div className="flex items-center space-x-2" onMouseEnter={() => hoverOn("brand-icon")} onMouseLeave={() => hoverOff("brand-icon")}>
-            <BrandName />
-          </div>
-          <ThemeSwitch />
-        </div>
-        <div className={`lg:w-[${signupPage ? "100%" : "50%"}] h-3/4 md:h-full flex flex-col justify-center`}>
-          <Card shadow="none">
-            <CardHeader className="flex-1 flex flex-col items-start">
-              <h3 className="text-xl font-semibold"> Welcome to the Portal </h3>
-              <p className="text-xs mt-[5px] mb-6"> Kindly provide your credentials to proceed </p>
-            </CardHeader>
-            <CardBody> {children} </CardBody>
-            <CardFooter> {authNavigate()} </CardFooter>
-          </Card>
-        </div>
-      </div>
-      <BackgroundImage theme={theme} />
+    <div className="fixed inset-0 w-full h-full bg-no-repeat bg-center bg-black/60 flex items-center justify-center px-4 sm:px-6" style={background}>
+      <Card isBlurred shadow="none" className="w-full max-w-md sm:max-w-lg border-none bg-background/60 dark:bg-default-100/50">
+        <CardHeader className="flex-1 flex flex-col items-start">
+          <h3 className="text-xl font-semibold"> Welcome to the Portal </h3>
+          {theme()}
+          <p className="text-xs mt-[5px] mb-6"> Kindly provide your credentials to proceed </p>
+        </CardHeader>
+        <CardBody> {children} </CardBody>
+        <CardFooter>
+          {options.map(({ loc, message, buttonText, nav }) => loc && (
+            <p key={nav} className="text-[15px]">
+              {message}
+              <button onClick={() => navigate(nav)} className="text-secondary font-bold">
+                {buttonText}
+              </button>
+            </p>
+          ))}
+        </CardFooter>
+      </Card>
     </div>
   );
 };

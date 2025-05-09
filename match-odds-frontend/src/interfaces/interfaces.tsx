@@ -19,3 +19,8 @@ export interface iProfilePic {
     image: File | null;
     setImage: (image: File | null) => void;
 }
+
+export interface iGreetingAndDate {
+    greeting: string;
+    formattedDate: string;
+}

@@ -1,16 +1,16 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, Suspense } from "react";
-import IndexPage from "@/pages/index";
-import DocsPage from "@/pages/docs";
-import PricingPage from "@/pages/pricing";
-import BlogPage from "@/pages/blog";
-import AboutPage from "@/pages/about";
-import LoginPage from "./pages/Auth/Login";
-import SignupPage from "./pages/Auth/Signup";
-import HomePage from "./pages/Home";
 import { LoadingIcon } from "./components/icons";
 import { iSmooth } from "./interfaces/interfaces";
+import LoginPage from "./pages/Auth/Login";
+import SignupPage from "./pages/Auth/Signup";
+import Landing from "./pages/Landing";
+import Home from "@/pages/Home";
+import Docs from "./pages/Docs";
+import Price from "@/pages/Price";
+import Blog from "./pages/Blog";
+import About from "./pages/About";
 
 const Smooth: FC<iSmooth> = ({ children }) => {
   const { div: Animate } = motion;
@@ -34,14 +34,14 @@ function App() {
     <AnimatePresence mode="wait">
       <Suspense fallback={loader}>
         <Routes location={location} key={pathname}>
-          <Route path="/" element={<Smooth> <HomePage /> </Smooth>} />
           <Route path="/login" element={<Smooth> <LoginPage /> </Smooth>} />
           <Route path="/signup" element={<Smooth> <SignupPage /> </Smooth>} />
-          <Route path="/home" element={<Smooth> <IndexPage /> </Smooth>} />
-          <Route path="/docs" element={<Smooth> <DocsPage /> </Smooth>} />
-          <Route path="/pricing" element={<Smooth> <PricingPage /> </Smooth>} />
-          <Route path="/blog" element={<Smooth> <BlogPage /> </Smooth>} />
-          <Route path="/about" element={<Smooth> <AboutPage /> </Smooth>} />
+          <Route path="/" element={<Smooth> <Landing /> </Smooth>} />
+          <Route path="/home" element={<Smooth> <Home /> </Smooth>} />
+          <Route path="/docs" element={<Smooth> <Docs /> </Smooth>} />
+          <Route path="/pricing" element={<Smooth> <Price /> </Smooth>} />
+          <Route path="/blog" element={<Smooth> <Blog /> </Smooth>} />
+          <Route path="/about" element={<Smooth> <About /> </Smooth>} />
         </Routes>
       </Suspense>
     </AnimatePresence>
