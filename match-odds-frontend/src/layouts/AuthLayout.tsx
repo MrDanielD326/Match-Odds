@@ -17,7 +17,7 @@ const AuthLayout = ({ children }: iAuthLayout) => {
 
   return (
     <div className="fixed inset-0 w-full h-full bg-no-repeat bg-center bg-black/60 flex items-center justify-center px-4 sm:px-6" style={background}>
-      <Card isBlurred shadow="none" className="w-full max-w-md sm:max-w-lg border-none bg-background/60 dark:bg-default-100/50">
+      <Card isBlurred shadow="none" className="w-full sm:max-w-2xl border-none bg-background/60 dark:bg-default-100/50">
         <CardHeader className="flex-1 flex flex-col items-start">
           <h3 className="text-xl font-semibold"> Welcome to the Portal </h3>
           {theme()}

@@ -2,17 +2,17 @@ import { BrandIcon, EyeCloseIcon, EyeOpenIcon, LogoutIcon } from "@/components/I
 import { useRef, useState } from "react";
 import { Fragment } from "react/jsx-runtime";
 import { Link } from "react-router-dom";
-import { iconHover } from "@/types";
+import { iIconHover } from "@/types";
 import { siteConfig } from "@/config/site";
 import { useNavigate } from "react-router-dom";
 
-const hoverIcon = (target: iconHover, isHovering: boolean) => (
+const hoverIcon = (target: iIconHover, isHovering: boolean) => (
     (typeof target === "string" ? document.getElementById(target) : target)
         ?.dispatchEvent(new MouseEvent(isHovering ? "mouseenter" : "mouseleave"))
 );
 
-export const hoverOn = (target: iconHover) => hoverIcon(target, true);
-export const hoverOff = (target: iconHover) => hoverIcon(target, false);
+export const hoverOn = (target: iIconHover) => hoverIcon(target, true);
+export const hoverOff = (target: iIconHover) => hoverIcon(target, false);
 
 export const BrandName = () => {
     const iconRef = useRef(null);

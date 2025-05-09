@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Link } from "@heroui/link";
 import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@heroui/navbar";
 import { link as linkStyles } from "@heroui/theme";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/Themes/ThemeSwitch";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BrandLink, LogoutLink } from "@/components/Icons/iconLinks";
 
 export const NavigationBar = () => {
@@ -29,7 +28,7 @@ export const NavigationBar = () => {
                     "data-[active=true]:text-primary data-[active=true]:font-medium"
                   )}
                   color="foreground"
-                  href={item.href}
+                  to={item.href}
                 >
                   {item.label}
                 </Link>
@@ -60,7 +59,7 @@ export const NavigationBar = () => {
           <div className="mx-4 mt-2 flex flex-col gap-2">
             {siteConfig.mobileNav.map((item, index) => (
               <NavbarMenuItem key={`${item.label}-${index}`}>
-                <Link href={item.href} size="lg" color={index === siteConfig.mobileNav.length - 1 ? "danger" : "foreground"}>
+                <Link to={item.href} color={index === siteConfig.mobileNav.length - 1 ? "danger" : "foreground"}>
                   {item.label}
                 </Link>
               </NavbarMenuItem>

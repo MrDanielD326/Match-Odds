@@ -17,27 +17,30 @@ export default function SignupPage() {
         </div>
     );
 
+    const infoChip = () => (
+        <Tooltip showArrow color="secondary" placement="bottom" content={help}>
+            <Chip size="md" color="secondary" variant="solid"> What is the purpose of this App? </Chip>
+        </Tooltip>
+    );
+
     return (
         <AuthLayout>
             <form>
-                <div className="flex space-x-20">
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                        <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Email" placeholder="Enter email" type="email" />
-                        <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Full Name" placeholder="Enter full name" type="text" />
-                        <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Password" placeholder="Enter password" type={isVisible ? "text" : "password"} endContent={VisibilityToggle} />
-                        <div className="flex flex-col space-y-2">
-                            <p className="text-sm"> Know more </p>
-                            <Tooltip showArrow className="w-[75%]" color="secondary" placement="bottom-start" content={help}>
-                                <Chip size="sm" color="secondary" variant="flat">
-                                    What is the purpose of this?
-                                </Chip>
-                            </Tooltip>
+                <div className="flex space-x-5">
+                    <div className="grid grid-rows-1 md:grid-rows-2 gap-6">
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                            <Input variant="flat" color="default" labelPlacement="outside" isRequired label="Email" placeholder="Enter your email" type="email" />
+                            <Input variant="flat" color="default" labelPlacement="outside" isRequired label="Name" placeholder="Enter your full name" type="text" />
                         </div>
+                        <Input variant="flat" color="default" labelPlacement="outside" isRequired label="Password" placeholder="Enter your password" type={isVisible ? "text" : "password"} endContent={VisibilityToggle} />
                     </div>
-                    <ProfilePhotoSelector image={null} setImage={() => { }} />
+                    <div>
+                        <ProfilePhotoSelector image={null} setImage={() => { }} />
+                        {infoChip()}
+                    </div>
                 </div>
                 <br />
-                <Button type='submit' color="secondary" className='font-medium' variant="flat"> SIGN UP </Button>
+                <Button type='submit' color="secondary" className='font-medium' variant="solid"> SIGN UP </Button>
             </form>
         </AuthLayout>
     );

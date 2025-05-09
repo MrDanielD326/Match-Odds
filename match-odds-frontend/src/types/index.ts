@@ -1,9 +1,9 @@
 import { SVGProps } from "react";
 
-export type IconSvgProps = SVGProps<SVGSVGElement> & {
+export type iSVG = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
-export type iconHover = string | HTMLElement | null;
+export type iIconHover = string | HTMLElement | null;
 
 export type iHover = "default" | "email" | "github" | "linkedin" | null;

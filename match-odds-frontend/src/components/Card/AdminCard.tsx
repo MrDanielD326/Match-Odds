@@ -13,7 +13,7 @@ export const AdminCard = () => {
     const [navigateTo, setNavigateTo] = useState<string | null>(null);
 
     useEffect(() => {
-        navigateTo ? setTimeout(() => window.open(navigateTo, "_blank"), 1500) : null;
+        navigateTo ? setTimeout(() => window.open(navigateTo, "_blank"), 1250) : null;
     }, [navigateTo]);
 
     const infoText: Record<Exclude<iHover, null>, string> = {
@@ -37,7 +37,7 @@ export const AdminCard = () => {
     };
 
     return (
-        <Card isFooterBlurred isHoverable isBlurred isPressable>
+        <Card isFooterBlurred isBlurred isPressable>
             <CardHeader className="flex gap-3"> {infoText[hovered ?? "default"]} </CardHeader>
             <CardBody> <Image alt="Image" height={350} radius="sm" src={Photo} /> </CardBody>
             <CardFooter className="justify-between border-white/20 border-1 overflow-hidden py-1 absolute rounded-small bottom-3 w-[calc(100%_-_24px)] shadow-small ml-3 z-10">

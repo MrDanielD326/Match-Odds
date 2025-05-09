@@ -8,11 +8,11 @@ export default function LoginPage() {
     return (
         <AuthLayout>
             <form>
-                <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Email" placeholder="Enter email" type="email" />
+                <Input variant="flat" color="default" labelPlacement="outside" isRequired label="Email" placeholder="Enter your email" type="email" />
                 <br />
-                <Input variant="underlined" color="secondary" labelPlacement="outside" isRequired label="Password" placeholder="Enter password" type={isVisible ? "text" : "password"} endContent={VisibilityToggle} />
+                <Input variant="flat" color="default" labelPlacement="outside" isRequired label="Password" placeholder="Enter your password" type={isVisible ? "text" : "password"} endContent={VisibilityToggle} />
                 <br />
-                <Button type='submit' color="secondary" className='font-medium' variant="flat"> LOGIN </Button>
+                <Button type='submit' color="secondary" className='font-medium' variant="solid"> LOGIN </Button>
             </form>
         </AuthLayout>
     );

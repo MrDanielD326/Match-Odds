@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { useTheme } from "@heroui/use-theme";
 import { SunFilledIcon, MoonFilledIcon } from "@/components/Icons/icons";
 import { iThemes } from "@/interfaces/interfaces";
+import { Tooltip } from "@heroui/react";
 
 export const ThemeSwitch: FC<iThemes> = ({ className, classNames }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -35,29 +36,33 @@ export const ThemeSwitch: FC<iThemes> = ({ className, classNames }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [toggleTheme]);
 
+  const infoTool = `Switch to ${isSelected ? "dark" : "light"} mode`
+
   const appTheme = () => (
-    <Component
-      aria-label={isSelected ? "Switch to dark mode" : "Switch to light mode"}
-      {...getBaseProps({
-        className: clsx(
-          className,
-          classNames?.base,
-          "px-px transition-opacity hover:opacity-80 cursor-pointer"
-        )
-      })}
-    >
-      <VisuallyHidden> <input {...getInputProps()} /> </VisuallyHidden>
-      <div
-        {...getWrapperProps({
+    <Tooltip showArrow color="secondary" placement="left" content={infoTool}>
+      <Component
+        aria-label={infoTool}
+        {...getBaseProps({
           className: clsx(
-            classNames?.wrapper,
-            "w-auto h-auto bg-transparent rounded-lg flex items-center justify-center group-data-[selected=true]:bg-transparent !text-default-500 pt-px px-0 mx-0"
+            className,
+            classNames?.base,
+            "px-px transition-opacity hover:opacity-80 cursor-pointer"
           )
         })}
       >
-        {isSelected ? <MoonFilledIcon /> : <SunFilledIcon />}
-      </div>
-    </Component>
+        <VisuallyHidden> <input {...getInputProps()} /> </VisuallyHidden>
+        <div
+          {...getWrapperProps({
+            className: clsx(
+              classNames?.wrapper,
+              "w-auto h-auto bg-transparent rounded-lg flex items-center justify-center group-data-[selected=true]:bg-transparent !text-default-500 pt-px px-0 mx-0"
+            )
+          })}
+        >
+          {isSelected ? <MoonFilledIcon /> : <SunFilledIcon />}
+        </div>
+      </Component>
+    </Tooltip>
   );
 
   return isMounted ? appTheme() : <div className="w-6 h-6" />;
