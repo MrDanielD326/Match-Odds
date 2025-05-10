@@ -1,7 +1,7 @@
-import { useRef, useState, useEffect, FC, ChangeEvent } from 'react'
-import { TrashIcon, UploadIcon, UserIcon } from '../Icons/icons'
-import { iProfilePic } from '@/interfaces/interfaces';
-import { Tooltip } from '@heroui/react';
+import { iProfilePic } from "@/interfaces/interfaces";
+import { Tooltip } from "@heroui/react";
+import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
+import { TrashIcon, UploadIcon, UserIcon } from "../Icons/icons";
 
 const ProfilePhotoSelector: FC<iProfilePic> = ({ image, setImage }) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);

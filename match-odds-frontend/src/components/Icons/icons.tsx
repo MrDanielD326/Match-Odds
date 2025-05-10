@@ -33,6 +33,8 @@ export const StartIcon = forwardRef<HTMLElement, { id: string }>((props, ref) =>
   <lord-icon
     id={props.id}
     ref={ref}
+    role="img"
+    aria-label="Start Icon"
     src="https://cdn.lordicon.com/ekuoyiqn.json"
     trigger="loop-on-hover"
     colors="primary:#900C3F,secondary:#900C3F,tertiary:#ebe6ef,quaternary:#900C3F"
@@ -43,6 +45,8 @@ export const BrandIcon = forwardRef<HTMLElement, { id: string }>((props, ref) =>
   <lord-icon
     id={props.id}
     ref={ref}
+    role="img"
+    aria-label="Brand Icon"
     src="https://cdn.lordicon.com/rhmhivzj.json"
     trigger="loop-on-hover"
     state="loop-spin"
@@ -52,6 +56,8 @@ export const BrandIcon = forwardRef<HTMLElement, { id: string }>((props, ref) =>
 
 export const LinkedInIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="LinkedIn Icon"
     src="https://cdn.lordicon.com/fgctxlnd.json"
     trigger="loop-on-hover"
     colors="primary:#900c3f,secondary:#ebe6ef"
@@ -60,6 +66,8 @@ export const LinkedInIcon: FC = () => (
 
 export const GithubIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Github Icon"
     src="https://cdn.lordicon.com/ioihllwu.json"
     trigger="loop-on-hover"
     colors="primary:#ffffff,secondary:#900c3f"
@@ -68,6 +76,8 @@ export const GithubIcon: FC = () => (
 
 export const UserIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="User Icon"
     src="https://cdn.lordicon.com/hroklero.json"
     trigger="loop-on-hover"
     colors="primary:#900c3f,secondary:#900c3f"
@@ -76,6 +86,8 @@ export const UserIcon: FC = () => (
 
 export const TrashIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Trash Icon"
     src="https://cdn.lordicon.com/qnhhgmwn.json"
     trigger="loop-on-hover"
     colors="primary:#646e78,secondary:#900c3f,tertiary:#fad3d1,quaternary:#900c3f"
@@ -84,6 +96,8 @@ export const TrashIcon: FC = () => (
 
 export const UploadIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Upload Icon"
     src="https://cdn.lordicon.com/sqmqtgjh.json"
     trigger="loop-on-hover"
     colors="primary:#900c3f,secondary:#e5d1fa"
@@ -92,6 +106,8 @@ export const UploadIcon: FC = () => (
 
 export const EyeOpenIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Open Icon"
     src="https://cdn.lordicon.com/knitbwfa.json"
     trigger="loop-on-hover"
     stroke="light"
@@ -102,6 +118,8 @@ export const EyeOpenIcon: FC = () => (
 
 export const EyeCloseIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Close Icon"
     src="https://cdn.lordicon.com/knitbwfa.json"
     trigger="hover"
     stroke="light"
@@ -112,6 +130,8 @@ export const EyeCloseIcon: FC = () => (
 
 export const ShowIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Show Icon"
     src="https://cdn.lordicon.com/japgxnmg.json"
     trigger="loop-on-hover"
     stroke="light"
@@ -121,6 +141,8 @@ export const ShowIcon: FC = () => (
 
 export const LoadingIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Loading Icon"
     src="https://cdn.lordicon.com/ayvhsttz.json"
     trigger="loop"
     stroke="bold"
@@ -131,6 +153,8 @@ export const LoadingIcon: FC = () => (
 
 export const MailIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Mail Icon"
     src="https://cdn.lordicon.com/dpggoewm.json"
     trigger="hover"
     colors="primary:#5c0a33,secondary:#900c3f,tertiary:#c7166f"
@@ -139,6 +163,8 @@ export const MailIcon: FC = () => (
 
 export const LogoutIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Logout Icon"
     src="https://cdn.lordicon.com/ncseweia.json"
     trigger="hover"
     colors="primary:#b26836,secondary:#f9c9c0,tertiary:#5c330a,quaternary:#3a3347,quinary:#5c330a,senary:#900c3f"
@@ -147,6 +173,8 @@ export const LogoutIcon: FC = () => (
 
 export const IntroIcon: FC = () => (
   <lord-icon
+    role="img"
+    aria-label="Intro Icon"
     src="https://cdn.lordicon.com/mhnfcfpf.json"
     trigger="in"
     state="in-reveal"

@@ -1,11 +1,10 @@
-import { FC, useState, useEffect, useCallback } from "react";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
-import { useSwitch } from "@heroui/switch";
-import clsx from "clsx";
-import { useTheme } from "@heroui/use-theme";
-import { SunFilledIcon, MoonFilledIcon } from "@/components/Icons/icons";
 import { iThemes } from "@/interfaces/interfaces";
-import { Tooltip } from "@heroui/react";
+import { Tooltip, VisuallyHidden } from "@heroui/react";
+import { useSwitch } from "@heroui/switch";
+import { useTheme } from "@heroui/use-theme";
+import clsx from "clsx";
+import { FC, useCallback, useEffect, useState } from "react";
+import { MoonFilledIcon, SunFilledIcon } from "../Icons/icons";
 
 export const ThemeSwitch: FC<iThemes> = ({ className, classNames }) => {
   const [isMounted, setIsMounted] = useState(false);

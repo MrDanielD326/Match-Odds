@@ -1,7 +1,7 @@
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import AppLayout from "@/layouts/AppLayout";
 import { AdminCard } from "@/components/Card/AdminCard";
+import { subtitle, title } from "@/components/primitives";
+import { siteConfig } from "@/config/site";
+import AppLayout from "@/layouts/AppLayout";
 
 export default function About() {
   const { brandName, creator, description } = siteConfig;

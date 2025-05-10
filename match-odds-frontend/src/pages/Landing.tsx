@@ -1,11 +1,11 @@
-import AppLayout from "@/layouts/AppLayout";
-import { IntroIcon, StartIcon } from "@/components/Icons/icons";
-import { Accordion, AccordionItem } from "@heroui/accordion";
-import { useRef, useState } from "react";
-import { ProjectInfo } from "@/config/info";
 import { hoverOff, hoverOn } from "@/components/Icons/iconLinks";
-import { useNavigate } from "react-router-dom";
+import { IntroIcon, StartIcon } from "@/components/Icons/icons";
+import { ProjectInfo } from "@/config/info";
+import AppLayout from "@/layouts/AppLayout";
 import { Button } from "@heroui/button";
+import { Accordion, AccordionItem } from "@heroui/react";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
     const iconRef = useRef<HTMLElement>(null);

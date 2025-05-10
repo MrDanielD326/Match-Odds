@@ -1,20 +1,15 @@
-import Photo from "../../assets/Images/Admin.png";
-import { addToast, Card, CardBody, CardFooter, CardHeader, Image } from "@heroui/react";
 import { siteConfig } from "@/config/site";
-import { GithubIcon, LinkedInIcon, MailIcon } from "../Icons/icons";
-import { useEffect, useState } from "react";
-import { getGreetingAndDate } from "@/utils/utils";
 import { iHover } from "@/types";
+import { getGreetingAndDate } from "@/utils/utils";
+import { addToast, Card, CardBody, CardFooter, CardHeader, Image, Link as GoTo } from "@heroui/react";
+import { useState } from "react";
+import { GithubIcon, LinkedInIcon, MailIcon } from "../Icons/icons";
+import Photo from "../../assets/Images/Admin.png";
 
 export const AdminCard = () => {
-    const { email, links } = siteConfig;
+    const { email, links: { github, linkedin } } = siteConfig;
     const [hovered, setHovered] = useState<iHover>(null);
     const { greeting } = getGreetingAndDate();
-    const [navigateTo, setNavigateTo] = useState<string | null>(null);
-
-    useEffect(() => {
-        navigateTo ? setTimeout(() => window.open(navigateTo, "_blank"), 1250) : null;
-    }, [navigateTo]);
 
     const infoText: Record<Exclude<iHover, null>, string> = {
         default: greeting,
@@ -25,11 +20,6 @@ export const AdminCard = () => {
 
     const handleHover = (key: iHover) => () => setHovered(key);
 
-    const delayedNavigate = (url: string) => () => {
-        setHovered(url.includes("github") ? "github" : "linkedin");
-        setNavigateTo(url);
-    };
-
     const handleToast = () => {
         navigator.clipboard.writeText(email);
         setHovered("email");
@@ -37,19 +27,19 @@ export const AdminCard = () => {
     };
 
     return (
-        <Card isFooterBlurred isBlurred isPressable>
+        <Card isFooterBlurred isBlurred>
             <CardHeader className="flex gap-3"> {infoText[hovered ?? "default"]} </CardHeader>
             <CardBody> <Image alt="Image" height={350} radius="sm" src={Photo} /> </CardBody>
             <CardFooter className="justify-between border-white/20 border-1 overflow-hidden py-1 absolute rounded-small bottom-3 w-[calc(100%_-_24px)] shadow-small ml-3 z-10">
-                <button onMouseEnter={handleHover("email")} onMouseLeave={handleHover(null)} onClick={handleToast}>
+                <button onClick={handleToast} onMouseEnter={handleHover("email")} onMouseLeave={handleHover(null)}>
                     <MailIcon />
                 </button>
-                <button onMouseEnter={delayedNavigate(links.github)} onMouseLeave={handleHover(null)}>
+                <GoTo isExternal href={github} onMouseEnter={handleHover("github")} onMouseLeave={handleHover(null)}>
                     <GithubIcon />
-                </button>
-                <button onMouseEnter={delayedNavigate(links.linkedin)} onMouseLeave={handleHover(null)}>
+                </GoTo>
+                <GoTo isExternal href={linkedin} onMouseEnter={handleHover("linkedin")} onMouseLeave={handleHover(null)}>
                     <LinkedInIcon />
-                </button>
+                </GoTo>
             </CardFooter>
         </Card>
     );

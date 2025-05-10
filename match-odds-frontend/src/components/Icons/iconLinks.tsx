@@ -1,10 +1,8 @@
-import { BrandIcon, EyeCloseIcon, EyeOpenIcon, LogoutIcon } from "@/components/Icons/icons";
-import { useRef, useState } from "react";
-import { Fragment } from "react/jsx-runtime";
-import { Link } from "react-router-dom";
 import { iIconHover } from "@/types";
+import { Fragment, useRef, useState } from "react";
+import { BrandIcon, EyeCloseIcon, EyeOpenIcon, LogoutIcon } from "./icons";
 import { siteConfig } from "@/config/site";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const hoverIcon = (target: iIconHover, isHovering: boolean) => (
     (typeof target === "string" ? document.getElementById(target) : target)

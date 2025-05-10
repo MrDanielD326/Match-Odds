@@ -1,5 +1,5 @@
-import { title } from "@/components/primitives";
 import AppLayout from "@/layouts/AppLayout";
+import { title } from "@/components/primitives";
 
 export default function Blog() {
   return (
