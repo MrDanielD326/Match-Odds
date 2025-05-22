@@ -1,7 +1,7 @@
 import { SVGProps } from "react";
 
 export type iSVG = SVGProps<SVGSVGElement> & {
-  size?: number;
+    size?: number;
 };
 
 export type iIconHover = string | HTMLElement | null;

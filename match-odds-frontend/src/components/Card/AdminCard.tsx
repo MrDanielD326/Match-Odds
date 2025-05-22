@@ -29,7 +29,7 @@ export const AdminCard = () => {
     return (
         <Card isFooterBlurred isBlurred>
             <CardHeader className="flex gap-3"> {infoText[hovered ?? "default"]} </CardHeader>
-            <CardBody> <Image alt="Image" height={350} radius="sm" src={Photo} /> </CardBody>
+            <CardBody> <Image src={Photo} alt="Image" height={350} radius="sm" /> </CardBody>
             <CardFooter className="justify-between border-white/20 border-1 overflow-hidden py-1 absolute rounded-small bottom-3 w-[calc(100%_-_24px)] shadow-small ml-3 z-10">
                 <button onClick={handleToast} onMouseEnter={handleHover("email")} onMouseLeave={handleHover(null)}>
                     <MailIcon />

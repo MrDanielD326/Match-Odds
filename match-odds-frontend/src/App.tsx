@@ -9,20 +9,25 @@ import Blog from "./pages/Blog";
 import About from "./pages/About";
 
 function App() {
-  const location = useLocation();
-  const { pathname } = location;
-  return (
-    <Routes location={location} key={pathname}>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
-      <Route path="/" element={<Landing />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/docs" element={<Docs />} />
-      <Route path="/pricing" element={<Price />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
-  );
+    const location = useLocation();
+    const { pathname } = location;
+
+    const routes = [
+        { path: '/login', page: <LoginPage /> },
+        { path: '/signup', page: <SignupPage /> },
+        { path: '/', page: <Landing /> },
+        { path: '/home', page: <Home /> },
+        { path: '/docs', page: <Docs /> },
+        { path: '/pricing', page: <Price /> },
+        { path: '/blog', page: <Blog /> },
+        { path: '/about', page: <About /> }
+    ];
+
+    return (
+        <Routes location={location} key={pathname}>
+            {routes.map(({ path, page }) => <Route key={path} path={path} element={page} />)}
+        </Routes>
+    );
 }
 
 export default App;
