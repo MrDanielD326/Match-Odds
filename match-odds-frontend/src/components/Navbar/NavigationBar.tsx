@@ -1,46 +1,41 @@
-import { siteConfig } from "@/config/site";
-import { Navbar as Nav, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@heroui/navbar";
 import { useState } from "react";
+import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@heroui/navbar";
+import { link as linkStyles } from "@heroui/theme";
+import clsx from "clsx";
+import { siteConfig } from "@/config/site";
+import { ThemeSwitch } from "@/components/Themes/ThemeSwitch";
 import { Link, useLocation } from "react-router-dom";
-import { BrandLink, LogoutLink } from "../Icons/iconLinks";
-import { ThemeSwitch } from "../Themes/ThemeSwitch";
+import { BrandLink, LogoutLink } from "@/components/Icons/iconLinks";
 
 export const NavigationBar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const desktopMenuItems = () => !isHomePage && siteConfig.desktopNav.map((item) => {
-    const { label, href } = item;
-    return (
-      <ul className="hidden sm:flex gap-4 justify-start ml-2">
-        <NavbarItem key={href} as="li">
-          <Link to={href} color="foreground"> {label} </Link>
-        </NavbarItem>
-      </ul>
-    )
-  });
-
-  const mobileMenuItems = () => !isHomePage && siteConfig.mobileNav.map((item, index) => {
-    const { label, href } = item;
-    return (
-      <NavbarMenu>
-        <ul className="mx-4 mt-2 flex flex-col gap-2">
-          <NavbarMenuItem key={`${label}-${index}`} as="li">
-            <Link to={href} color={index === siteConfig.mobileNav.length - 1 ? "danger" : "foreground"}>
-              {label}
-            </Link>
-          </NavbarMenuItem>
-        </ul>
-      </NavbarMenu>
-    )
-  });
-
   return (
-    <Nav maxWidth="xl" position="sticky" shouldHideOnScroll isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+    <HeroUINavbar maxWidth="xl" position="sticky" shouldHideOnScroll isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand className="gap-3 max-w-fit"> <BrandLink navs={isHomePage} /> </NavbarBrand>
-        {desktopMenuItems()}
+        <NavbarBrand className="gap-3 max-w-fit">
+          <BrandLink navs={isHomePage} />
+        </NavbarBrand>
+        {!isHomePage && (
+          <div className="hidden sm:flex gap-4 justify-start ml-2">
+            {siteConfig.desktopNav.map((item) => (
+              <NavbarItem key={item.href}>
+                <Link
+                  className={clsx(
+                    linkStyles({ color: "foreground" }),
+                    "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  )}
+                  color="foreground"
+                  to={item.href}
+                >
+                  {item.label}
+                </Link>
+              </NavbarItem>
+            ))}
+          </div>
+        )}
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
@@ -59,7 +54,19 @@ export const NavigationBar = () => {
         )}
       </NavbarContent>
 
-      {mobileMenuItems()}
-    </Nav>
+      {!isHomePage && (
+        <NavbarMenu>
+          <div className="mx-4 mt-2 flex flex-col gap-2">
+            {siteConfig.mobileNav.map((item, index) => (
+              <NavbarMenuItem key={`${item.label}-${index}`}>
+                <Link to={item.href} color={index === siteConfig.mobileNav.length - 1 ? "danger" : "foreground"}>
+                  {item.label}
+                </Link>
+              </NavbarMenuItem>
+            ))}
+          </div>
+        </NavbarMenu>
+      )}
+    </HeroUINavbar>
   );
 };
